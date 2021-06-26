@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="811.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="tabPaneHP" closable="false" onSelectionChanged="#HPselected" text="Home Page">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnHP_AddFriend" layoutX="950.0" layoutY="590.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPage" prefHeight="50.0" prefWidth="250.0" text="Add Friend" AnchorPane.bottomAnchor="400.0" AnchorPane.rightAnchor="100.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Button>
+                        <Button fx:id="btnHP_RemoveFriend" layoutX="950.0" layoutY="300.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#removePage" prefHeight="50.0" prefWidth="250.0" text="Remove Friend" AnchorPane.bottomAnchor="300.0" AnchorPane.rightAnchor="100.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Button>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="73.0" prefWidth="816.0" text="Your Wonderful FRIENDS BOOK~" textFill="#f87437">
+                           <font>
+                              <Font name="Eras Demi ITC" size="50.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTime" layoutX="14.0" layoutY="87.0" prefHeight="75.0" prefWidth="800.0" text="Time: " textFill="#4751c3">
+                           <font>
+                              <Font name="EuroRoman" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblHP_recentAddedNum" layoutX="14.0" layoutY="232.0" text="Recently added (0):">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblHP_recentAdded9" layoutX="14.0" layoutY="417.0" />
+                        <Label fx:id="lblHP_recentAdded8" layoutX="14.0" layoutY="400.0" />
+                        <Label fx:id="lblHP_recentAdded7" layoutX="14.0" layoutY="383.0" />
+                        <Label fx:id="lblHP_recentAdded6" layoutX="14.0" layoutY="366.0" />
+                        <Label fx:id="lblHP_recentAdded5" layoutX="14.0" layoutY="349.0" />
+                        <Label fx:id="lblHP_recentAdded4" layoutX="14.0" layoutY="332.0" />
+                        <Label fx:id="lblHP_recentAdded3" layoutX="14.0" layoutY="315.0" />
+                        <Label fx:id="lblHP_recentAdded2" layoutX="14.0" layoutY="298.0" />
+                        <Label fx:id="lblHP_recentAdded1" layoutX="14.0" layoutY="281.0" />
+                        <Label fx:id="lblHP_recentAdded10" layoutX="14.0" layoutY="434.0" />
+                        <Button fx:id="btn_HPSaveFriends" layoutX="930.0" layoutY="443.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveFriends" prefHeight="50.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="198.0" AnchorPane.rightAnchor="250.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_HPLoadFriends" layoutX="1055.0" layoutY="443.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadFriends" prefHeight="50.0" prefWidth="100.0" text="Load" AnchorPane.bottomAnchor="198.0" AnchorPane.rightAnchor="100.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="lblHP_loadSaveSuccess" alignment="CENTER" contentDisplay="CENTER" layoutX="390.0" layoutY="570.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" text="~~~" textAlignment="CENTER" textFill="#5fbc25" visible="false">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbl_HPSaveNotSaved" layoutX="516.0" layoutY="225.0" text="Warning: File not Saved!!!" textFill="RED" visible="false">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab fx:id="tabFriendList" closable="false" text="Friend List (0)">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="friendsList" disable="true" onMouseClicked="#displayProperties" prefHeight="580.0" prefWidth="300.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="50.0" />
+                        <Label layoutX="500.0" layoutY="80.0" prefHeight="35.0" prefWidth="150.0" text="Name: " AnchorPane.bottomAnchor="576.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="630.0" AnchorPane.topAnchor="80.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="500.0" layoutY="140.0" prefHeight="35.0" prefWidth="150.0" text="Phone No. :">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="500.0" layoutY="200.0" prefHeight="35.0" prefWidth="150.0" text="Email:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="500.0" layoutY="260.0" prefHeight="35.0" prefWidth="150.0" text="Address:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblFL_Name" layoutX="650.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblFL_Phone" layoutX="650.0" layoutY="140.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblFL_Email" layoutX="650.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblFL_Address" layoutX="650.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab fx:id="tabAddFriend" text="Add Friend">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="338.0" layoutY="114.0" prefHeight="200.0" prefWidth="100.0" />
+                     </children></AnchorPane>
+               </content>
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="lblAF_Name" layoutX="300.0" layoutY="250.0" prefHeight="35.0" prefWidth="150.0" text="Name* : ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblAF_Address" layoutX="300.0" layoutY="400.0" prefHeight="35.0" prefWidth="150.0" text="Address: ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblAF_Phone" layoutX="300.0" layoutY="300.0" prefHeight="35.0" prefWidth="150.0" text="Phone No.* :">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblAF_Email" layoutX="300.0" layoutY="350.0" prefHeight="35.0" prefWidth="150.0" text="Email* :">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfName" layoutX="450.0" layoutY="250.0" onMouseClicked="#clearSuccessText" prefHeight="35.0" prefWidth="150.0" promptText="Name" />
+                        <TextField fx:id="tfPhone" layoutX="450.0" layoutY="300.0" onMouseClicked="#clearSuccessText" prefHeight="35.0" prefWidth="150.0" promptText="Phone No." />
+                        <TextField fx:id="tfEmail" layoutX="450.0" layoutY="350.0" onMouseClicked="#clearSuccessText" prefHeight="35.0" prefWidth="150.0" promptText="Email" />
+                        <TextField fx:id="tfAddress" layoutX="450.0" layoutY="400.0" onMouseClicked="#clearSuccessText" prefHeight="35.0" prefWidth="150.0" promptText="Address" />
+                        <Label layoutX="76.0" layoutY="72.0" prefHeight="74.0" prefWidth="180.0" text="New Friend!" underline="true" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="50.0">
+                           <font>
+                              <Font name="HP Simplified Italic" size="36.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.3799585700035095" green="0.6842105388641357" blue="0.3262670636177063" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.3799585700035095" green="0.6842105388641357" blue="0.3262670636177063" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Button fx:id="btnAF_AddFriend" layoutX="490.0" layoutY="460.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addFriend" prefHeight="30.0" prefWidth="110.0" text="Add Friend~!" textFill="#ff8800" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="491.0" AnchorPane.rightAnchor="990.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="lblAF_success" layoutX="640.0" layoutY="463.0" text="Added Friend!" textFill="#82bf3c" visible="false" AnchorPane.bottomAnchor="203.0">
+                           <font>
+                              <Font name="System Italic" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="660.0" text="* : Name is required, either Phone No. or Email is required" />
+                        <Button fx:id="btnAF_DuplicateCheckYes" layoutX="1040.0" layoutY="352.0" mnemonicParsing="false" onAction="#addFriendFinal" text="Yes" textFill="#2b943b" visible="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnAF_DuplicateCheckNo" layoutX="886.0" layoutY="352.0" mnemonicParsing="false" text="No" textFill="RED" visible="false">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="AF_DuplicateCheck" alignment="CENTER" layoutX="737.0" layoutY="150.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" text="This friend has been added before. Are you sure you want to add them again?" textAlignment="CENTER" textFill="#9e1616" visible="false" AnchorPane.bottomAnchor="360.0" AnchorPane.rightAnchor="354.0" AnchorPane.topAnchor="150.0">
+                           <font>
+                              <Font name="HP Simplified Italic" size="18.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabRemoveFriend" text="Remove Friend">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="RF_friendsList" disable="true" layoutX="70.0" layoutY="102.0" onMouseClicked="#displayProperties" prefHeight="580.0" prefWidth="300.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="50.0" />
+                        <Button fx:id="btnRF_removeFriend" disable="true" layoutX="1038.0" layoutY="597.0" mnemonicParsing="false" onAction="#removeFriend" text="Remove Friend" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="75.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="500.0" layoutY="80.0" prefHeight="35.0" prefWidth="150.0" text="Name: ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="500.0" layoutY="140.0" prefHeight="35.0" prefWidth="150.0" text="Phone No. :">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="500.0" layoutY="200.0" prefHeight="35.0" prefWidth="150.0" text="Email:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="500.0" layoutY="260.0" prefHeight="35.0" prefWidth="150.0" text="Address:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRF_Name" layoutX="650.0" layoutY="80.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRF_Phone" layoutX="650.0" layoutY="140.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRF_Email" layoutX="650.0" layoutY="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRF_Address" layoutX="650.0" layoutY="260.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="550.0" text="---------------">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabPaneSaves" closable="false" disable="true" onSelectionChanged="#savesNLoadsSelectionChanged" text="Save">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="74.0" text="Friends Save Files:" textFill="#ffa621" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="SF_preset1" layoutX="135.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset1" prefHeight="45.0" prefWidth="130.0" text="Preset 1" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset2" layoutX="345.0" layoutY="199.0" mnemonicParsing="false" onAction="#savesPreset2" text="Preset 2" AnchorPane.leftAnchor="345.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset6" layoutX="135.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset6" prefHeight="45.0" prefWidth="130.0" text="Preset 6" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="135.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset8" layoutX="550.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset8" prefHeight="45.0" prefWidth="130.0" text="Preset 8">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset3" layoutX="550.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset3" prefHeight="45.0" prefWidth="130.0" text="Preset 3" AnchorPane.leftAnchor="550.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset4" layoutX="760.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset4" prefHeight="45.0" prefWidth="130.0" text="Preset 4" AnchorPane.leftAnchor="760.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset9" layoutX="760.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset9" prefHeight="45.0" prefWidth="130.0" text="Preset 9">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset10" layoutX="975.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset10" prefHeight="45.0" prefWidth="150.0" text="Preset 10">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset7" layoutX="345.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset7" prefHeight="45.0" prefWidth="130.0" text="Preset 7">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="SF_preset5" layoutX="985.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#savesPreset5" prefHeight="45.0" prefWidth="130.0" text="Preset 5" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabPaneLoad" closable="false" disable="true" onSelectionChanged="#savesNLoadsSelectionChanged" text="Load">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="74.0" text="Friends Load Files:" textFill="#ffa621" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="LF_preset1" layoutX="145.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset1" prefHeight="45.0" prefWidth="130.0" text="Preset 1" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset2" layoutX="355.0" layoutY="199.0" mnemonicParsing="false" onAction="#loadPreset2" text="Preset 2" AnchorPane.leftAnchor="355.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset6" layoutX="158.0" layoutY="448.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset6" prefHeight="45.0" prefWidth="130.0" text="Preset 6" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="158.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset8" layoutX="560.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset8" prefHeight="45.0" prefWidth="130.0" text="Preset 8">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset3" layoutX="560.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset3" prefHeight="45.0" prefWidth="130.0" text="Preset 3" AnchorPane.leftAnchor="560.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset4" layoutX="770.0" layoutY="199.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset4" prefHeight="45.0" prefWidth="130.0" text="Preset 4" AnchorPane.leftAnchor="770.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset9" layoutX="770.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset9" prefHeight="45.0" prefWidth="130.0" text="Preset 9">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset10" layoutX="985.0" layoutY="447.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset10" prefHeight="45.0" prefWidth="150.0" text="Preset 10">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset7" layoutX="360.0" layoutY="448.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset7" prefHeight="45.0" prefWidth="130.0" text="Preset 7">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="LF_preset5" layoutX="995.0" layoutY="199.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadPreset5" prefHeight="45.0" prefWidth="130.0" text="Preset 5" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="199.0">
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>
