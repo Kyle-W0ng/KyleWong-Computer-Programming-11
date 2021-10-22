@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <TabPane fx:id="tabPane" prefHeight="720.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab fx:id="tab_Home" onSelectionChanged="#loadExistingSurveys" text="Home">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <Button fx:id="btn_Home_createNew" layoutX="77.0" layoutY="263.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createNewSetUp" prefHeight="50.0" prefWidth="170.0" text="Create New" AnchorPane.bottomAnchor="350.0">
+                    <font>
+                        <Font name="Gill Sans MT" size="25.0" />
+                    </font>
+                </Button>
+            <TextField fx:id="tf_Home_newName" disable="true" layoutX="148.0" layoutY="386.0" prefHeight="38.0" prefWidth="150.0" promptText="File name">
+               <font>
+                  <Font name="Gill Sans MT" size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_Home_Creator" disable="true" layoutX="148.0" layoutY="438.0" prefHeight="38.0" prefWidth="150.0" promptText="Creator">
+               <font>
+                  <Font name="Gill Sans MT" size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tf_Home_Date" disable="true" layoutX="148.0" layoutY="489.0" prefHeight="38.0" prefWidth="150.0" promptText="Date">
+               <font>
+                  <Font name="Gill Sans MT" size="20.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btn_Home_start" disable="true" layoutX="80.0" layoutY="550.0" mnemonicParsing="false" onAction="#createFile" prefHeight="30.0" prefWidth="100.0" text="Start!" AnchorPane.bottomAnchor="92.0">
+               <font>
+                  <Font name="Dubai Regular" size="20.0" />
+               </font>
+            </Button>
+                <ListView fx:id="listV_Home_ExistingSurveys" layoutX="949.0" layoutY="157.0" prefHeight="400.0" prefWidth="273.0" AnchorPane.leftAnchor="949.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="150.0" />
+                <Button fx:id="btn_Home_OpenFile" layoutX="950.0" layoutY="597.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openExistingSurveys" prefHeight="45.0" prefWidth="95.0" text="Open" AnchorPane.bottomAnchor="49.0">
+               <font>
+                  <Font name="Gill Sans MT" size="25.0" />
+               </font></Button>
+                <Button fx:id="btn_Home_DeleteFile" layoutX="1099.0" layoutY="597.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteExistingSurveys" prefHeight="45.0" prefWidth="105.0" text="Delete">
+               <font>
+                  <Font name="Gill Sans MT" size="25.0" />
+               </font></Button>
+            <Button fx:id="btn_Home_dupYes" layoutX="371.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openExistingSurveys" prefHeight="45.0" prefWidth="75.0" text="Sure" visible="false">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_Home_dupNo" layoutX="513.0" layoutY="581.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#rejectDuplication" prefHeight="45.0" prefWidth="75.0" text="No" visible="false">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+                <Label layoutX="974.0" layoutY="161.0" text="Existing surveys:" AnchorPane.leftAnchor="950.0" AnchorPane.topAnchor="100.0">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="285.0" layoutY="50.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" text="Survey Creator" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="50.0">
+                    <font>
+                        <Font name="Gill Sans MT Italic" size="34.0" />
+                    </font>
+                </Label>
+            <Label fx:id="lbl_Home_newName" disable="true" layoutX="80.0" layoutY="393.0" text="Name*:">
+               <font>
+                  <Font name="Gill Sans MT" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_Home_Creator" disable="true" layoutX="63.0" layoutY="445.0" text="Creator*:">
+               <font>
+                  <Font name="Gill Sans MT" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_Home_dupDeleteText" layoutX="371.0" layoutY="535.0" text="Error. This file as been created before. Open Instead?" textFill="RED" visible="false">
+               <font>
+                  <Font name="Baskerville Old Face" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_Home_Date" disable="true" layoutX="85.0" layoutY="496.0" text="Date*:">
+               <font>
+                  <Font name="Gill Sans MT" size="20.0" />
+               </font>
+            </Label>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_VE" disable="true" onSelectionChanged="#tabsChanged" text="View/Edit">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <Button layoutX="1035.0" layoutY="571.0" mnemonicParsing="false" onAction="#saveSurvey" prefHeight="50.0" prefWidth="100.0" text="Save" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="350.0">
+                    <font>
+                        <Font name="Gill Sans MT" size="25.0" />
+                    </font>
+                </Button>
+                <ListView fx:id="listV_VE_questions" disable="true" editable="true" layoutX="97.0" layoutY="72.0" onMouseClicked="#viewQuestions" prefHeight="531.0" prefWidth="268.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="75.0" />
+            <Label fx:id="lbl_VE_creator" layoutX="739.0" layoutY="21.0" text="Creator:">
+               <font>
+                  <Font name="Javanese Text" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_VE_date" layoutX="1030.0" layoutY="21.0" text="Date:">
+               <font>
+                  <Font name="Javanese Text" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tf_VE_creator" layoutX="818.0" layoutY="31.0" />
+            <TextField fx:id="tf_VE_Date" layoutX="1083.0" layoutY="31.0" />
+                <AnchorPane fx:id="ap_VE_generalInfo" layoutX="584.0" layoutY="133.0" prefHeight="200.0" prefWidth="500.0">
+                    <Label fx:id="lbl_VE_questionNumber" layoutX="26.0" layoutY="21.0" text="---">
+                        <font>
+                            <Font name="Javanese Text" size="22.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lbl_VE_questionType" layoutY="83.0" text="Question Type:">
+                        <font>
+                            <Font name="Javanese Text" size="22.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="tf_VE_editQuestion" layoutX="74.0" layoutY="32.0" prefHeight="41.0" prefWidth="400.0" promptText="Edit question here">
+                        <font>
+                            <Font name="Javanese Text" size="12.0" />
+                        </font>
+                    </TextField>
+                </AnchorPane>
+                <AnchorPane fx:id="ap_VE_editMC" layoutX="591.0" layoutY="263.0" prefHeight="300.0" prefWidth="550.0">
+                    <TextField fx:id="tf_VE_editChoice1" layoutX="136.0" layoutY="26.0" prefWidth="400.0" promptText="Edit Choice 1 here">
+                        <font>
+                            <Font name="Javanese Text" size="12.0" />
+                        </font>
+                    </TextField>
+                    <TextField fx:id="tf_VE_editChoice2" layoutX="136.0" layoutY="100.0" prefWidth="400.0" promptText="Edit Choice 2 here">
+                        <font>
+                            <Font name="Javanese Text" size="12.0" />
+                        </font>
+                    </TextField>
+                    <TextField fx:id="tf_VE_editChoice3" layoutX="136.0" layoutY="167.0" prefWidth="400.0" promptText="Edit Choice 3 here">
+                        <font>
+                            <Font name="Javanese Text" size="12.0" />
+                        </font>
+                    </TextField>
+                    <TextField fx:id="tf_VE_editChoice4" layoutX="136.0" layoutY="238.0" prefWidth="400.0" promptText="Edit Choice 4 here">
+                        <font>
+                            <Font name="Javanese Text" size="12.0" />
+                        </font>
+                    </TextField>
+                    <Label fx:id="lbl_VE_choice1" layoutX="14.0" layoutY="37.0" text="Choice 1:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+                        <font>
+                            <Font size="22.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lbl_VE_choice2" layoutX="30.0" layoutY="104.0" text="Choice 2:">
+                        <font>
+                            <Font size="22.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lbl_VE_choice3" layoutX="30.0" layoutY="171.0" text="Choice 3:">
+                        <font>
+                            <Font size="22.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="lbl_VE_choice4" layoutX="30.0" layoutY="243.0" text="Choice 4:" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="30.0">
+                        <font>
+                            <Font size="22.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <AnchorPane fx:id="ap_VE_editWritten" layoutX="601.0" layoutY="273.0" prefHeight="300.0" prefWidth="550.0" visible="false">
+                    <Label fx:id="lbl_VE_editWrittenLength" layoutX="40.0" layoutY="23.0" text="Expected Response Length:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="45.0">
+                        <font>
+                            <Font size="22.0" />
+                        </font>
+                    </Label>
+                    <Slider fx:id="s_VE_editResponseLength" blockIncrement="20.0" layoutX="45.0" layoutY="100.0" majorTickUnit="20.0" min="20.0" minorTickCount="0" onMouseReleased="#refreshSamples" prefHeight="50.0" prefWidth="250.0" showTickMarks="true" snapToTicks="true" />
+                    <Label fx:id="lbl_VE_writtenLength" layoutX="331.0" layoutY="100.0" text="(Short)">
+                        <font>
+                            <Font name="Gill Sans MT" size="26.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+            <Button layoutX="591.0" layoutY="571.0" mnemonicParsing="false" onAction="#editQuestion" text="Confirm Edit" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="500.0">
+               <font>
+                  <Font name="Gill Sans MT" size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="1141.0" layoutY="569.0" mnemonicParsing="false" onAction="#exportSurvey" prefHeight="50.0" prefWidth="150.0" text="Export" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="150.0">
+               <font>
+                  <Font name="Gill Sans MT" size="25.0" />
+               </font>
+            </Button>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_Add" disable="true" onSelectionChanged="#tabsChanged" text="Add Question">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <SplitPane dividerPositions="0.5" layoutY="56.0" prefHeight="550.0" prefWidth="1280.0">
+                    <AnchorPane fx:id="ap_Add_mc" minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="89.0" SplitPane.resizableWithParent="false">
+                        <Label alignment="CENTER" layoutX="239.0" layoutY="52.0" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Multiple Choice" AnchorPane.topAnchor="50.0">
+                            <font>
+                                <Font name="Forte" size="26.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="tf_Add_mc_Choice1" layoutX="159.0" layoutY="189.0" maxHeight="25.0" maxWidth="149.0" onKeyReleased="#refreshSamples" promptText="Choice 1" />
+                        <Label layoutX="39.0" layoutY="331.0" text="Sample:" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="35.0">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lbl_Add_choice1" layoutX="77.0" layoutY="179.0" text="Choice 1*:">
+                            <font>
+                                <Font name="Javanese Text" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lbl_Add_choice2" layoutX="348.0" layoutY="179.0" text="Choice 2*:">
+                            <font>
+                                <Font name="Javanese Text" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lbl_Add_choice3" layoutX="76.0" layoutY="250.0" text="Choice 3:">
+                            <font>
+                                <Font name="Javanese Text" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lbl_Add_choice4" layoutX="348.0" layoutY="250.0" text="Choice 4:">
+                            <font>
+                                <Font name="Javanese Text" size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="tf_Add_mc_Choice2" layoutX="430.0" layoutY="189.0" maxHeight="25.0" maxWidth="149.0" onKeyReleased="#refreshSamples" promptText="Choice 2" />
+                        <TextField fx:id="tf_Add_mc_Choice3" disable="true" layoutX="159.0" layoutY="260.0" maxHeight="25.0" maxWidth="149.0" onKeyReleased="#refreshSamples" promptText="Choice 3" />
+                        <TextField fx:id="tf_Add_mc_Choice4" disable="true" layoutX="430.0" layoutY="260.0" maxHeight="25.0" maxWidth="149.0" onKeyReleased="#refreshSamples" promptText="Choice 4" />
+                        <Label fx:id="lbl_Add_mc_Question" layoutX="185.0" layoutY="104.0" text="Question*:">
+                            <font>
+                                <Font name="Javanese Text" size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="tf_Add_mc_Question" layoutX="265.0" layoutY="115.0" maxHeight="25.0" maxWidth="149.0" onKeyReleased="#refreshSamples" promptText="Question" />
+                  <Label fx:id="lbl_Add_mc_sampleQuestion" layoutX="62.0" layoutY="359.0" maxWidth="525.0" prefWidth="525.0" text="e.g. ) ---" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="60.0">
+                     <font>
+                        <Font name="Javanese Text" size="16.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="rb_Add_sampleChoice3" layoutX="159.0" layoutY="471.0" maxHeight="17.0" maxWidth="178.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="178.0" text="---" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="160.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="rb_Add_sampleChoices" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rb_Add_sampleChoice2" layoutX="348.0" layoutY="411.0" maxHeight="17.0" maxWidth="250.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="250.0" text="---" toggleGroup="$rb_Add_sampleChoices" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="350.0" />
+                  <RadioButton fx:id="rb_Add_sampleChoice1" layoutX="159.0" layoutY="411.0" maxHeight="17.0" maxWidth="178.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="178.0" text="---" toggleGroup="$rb_Add_sampleChoices" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="160.0" />
+                  <RadioButton fx:id="rb_Add_sampleChoice4" layoutX="348.0" layoutY="471.0" maxHeight="17.0" maxWidth="250.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="250.0" text="---" toggleGroup="$rb_Add_sampleChoices" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="350.0" />
+                  <Button fx:id="btn_Add_chooseType_Written" layoutX="523.0" layoutY="61.0" mnemonicParsing="false" onAction="#chooseType" text="Switch to: Written" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Button>
+                    </AnchorPane>
+                    <AnchorPane fx:id="ap_Add_written" disable="true" minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="47.0" SplitPane.resizableWithParent="false">
+                        <Label alignment="CENTER" layoutX="218.0" layoutY="47.0" minWidth="-Infinity" prefWidth="200.0" text="Written" AnchorPane.topAnchor="50.0">
+                            <font>
+                                <Font name="Forte" size="26.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="lbl_Add_written_Question" layoutX="119.0" layoutY="134.0" text="Question*:">
+                     <font>
+                        <Font name="Javanese Text" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tf_Add_written_Question" layoutX="208.0" layoutY="120.0" onKeyReleased="#refreshSamples" prefHeight="75.0" prefWidth="364.0" promptText="Question" AnchorPane.rightAnchor="64.0" />
+                  <Label fx:id="lbl_Add_written_questionLength" layoutX="60.0" layoutY="196.0" text="Expected Response length:">
+                     <font>
+                        <Font name="Javanese Text" size="16.0" />
+                     </font>
+                  </Label>
+                  <Slider fx:id="s_Add_written_Length" blockIncrement="20.0" layoutX="256.0" layoutY="211.0" majorTickUnit="20.0" min="20.0" minorTickCount="0" onMouseReleased="#refreshSamples" showTickMarks="true" snapToTicks="true" />
+                  <Label fx:id="lbl_Add_written_Length" layoutX="404.0" layoutY="209.0" text="(Short)">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="319.0" text="Sample:" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="35.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl_Add_written_sampleQuestion" layoutX="70.0" layoutY="349.0" maxWidth="525.0" prefWidth="525.0" text="e.g. ) ---" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="60.0">
+                     <font>
+                        <Font name="Javanese Text" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="ta_Add_written_answer" editable="false" layoutX="105.0" layoutY="401.0" prefHeight="130.0" prefWidth="508.0" text="__________________________________________________________________________________________________" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Button fx:id="btn_Add_chooseType_MC" layoutX="77.0" layoutY="48.0" mnemonicParsing="false" onAction="#chooseType" text="Switch to: Multiple Choices" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="Gill Sans MT" size="16.0" />
+                     </font>
+                  </Button>
+                    </AnchorPane>
+                </SplitPane>
+                <Button fx:id="btn_Add_addQuestion" layoutX="1168.0" layoutY="622.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="31.0" prefWidth="82.0" text="Add" textFill="#ff3c00" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="30.0">
+                    <font>
+                        <Font name="KaiTi" size="26.0" />
+                    </font>
+                </Button>
+                <Label layoutX="13.0" layoutY="663.0" text="* Must be filled in" />
+                <Label fx:id="lbl_Add_surveyName" layoutX="36.0" layoutY="18.0">
+                    <font>
+                        <Font name="HP Simplified" size="26.0" />
+                    </font>
+                </Label>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="tab_Remove" disable="true" onSelectionChanged="#tabsChanged" text="Remove Question">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <ListView fx:id="listV_Remove_removeQuestions" disable="true" layoutX="102.0" layoutY="81.0" prefHeight="530.0" prefWidth="500.0" AnchorPane.leftAnchor="150.0" />
+            <Button fx:id="btn_Remove_Remove" disable="true" layoutX="719.0" layoutY="192.0" mnemonicParsing="false" onAction="#removeQuestion" text="Remove">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Label fx:id="lbl_Remove_text" layoutX="719.0" layoutY="322.0" text="-- Question Selected Removed --" visible="false">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+</VBox>
